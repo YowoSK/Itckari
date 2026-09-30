@@ -1,10 +1,10 @@
 # Itckari
 
-**CodeQuest** je jednoduchý interaktívny sprievodca základmi programovania pre začiatočníkov. Vedie študenta od tvorby webových stránok až k základným princípom programovania v C a C++.
+**CodeQuest** je jednoduchý interaktívny sprievodca základmi programovania pre začiatočníkov. Vedie študenta od tvorby webových stránok cez C a C++ až k základom Pythonu, Javy a C#.
 
 ## Čo projekt obsahuje
 
-- 11 lekcií z HTML, CSS, JavaScriptu, C a C++.
+- 14 lekcií z HTML, CSS, JavaScriptu, C, C++, Pythonu, Javy a C#.
 - 15 praktických úloh v každej lekcii vrátane ukážok kódu určených na opravu.
 - Výklad základných pojmov, príklady a pseudokód.
 - Vyhľadávanie a filtrovanie lekcií.

@@ -25,6 +25,9 @@ const stableLessonIds = [
   'lesson-keep-related-data-together',
   'lesson-debug-test-and-keep-improving',
   'lesson-write-code-thoughtfully',
+  'lesson-python-basics',
+  'lesson-java-basics',
+  'lesson-csharp-basics',
 ];
 
 const lessonTasks = {
@@ -82,6 +85,21 @@ const lessonTasks = {
     { id: 'replace-vague-names', text: 'Premenuj nejasné názvy ako x alebo data na názvy, ktoré vysvetľujú ich význam.' },
     { id: 'plan-before-coding', text: 'Napíš pseudokód pre malú úlohu ešte predtým, než začneš písať syntax konkrétneho jazyka.' },
     { id: 'test-edge-cases', text: 'Navrhni bežný aj neobvyklý vstup a opíš očakávaný výsledok pre oba.' },
+  ],
+  'lesson-python-basics': [
+    { id: 'python-indentation', text: 'Oprav odsadenie funkcie tak, aby sa vypísalo číslo 5.' },
+    { id: 'python-convert-input', text: 'Premeň textové vstupy na čísla; pri 2 a 3 má program vypísať 5.' },
+    { id: 'python-loop', text: 'Oprav while cyklus tak, aby vypísal 1, 2 a 3 a potom sa zastavil.' },
+  ],
+  'lesson-java-basics': [
+    { id: 'java-main', text: 'Doplň hlavičku main, aby program vypísal „Ahoj, svet!“.' },
+    { id: 'java-variable-types', text: 'Oprav typy premenných a vypíš meno Eva a vek 16.' },
+    { id: 'java-method-result', text: 'Oprav metódu na násobenie; výsledok pre 3 a 4 má byť 12.' },
+  ],
+  'lesson-csharp-basics': [
+    { id: 'csharp-entry-point', text: 'Oprav vstupný bod programu, aby vypísal „Ahoj, svet!“.' },
+    { id: 'csharp-variable-types', text: 'Oprav typy premenných a vypíš meno Eva a vek 16.' },
+    { id: 'csharp-method-result', text: 'Oprav metódu na sčítanie; výsledok 4 + 6 má byť 10.' },
   ],
 };
 
@@ -239,6 +257,48 @@ const additionalLessonTasks = {
     'Preveď jeden riadok pseudokódu do JavaScriptu alebo C++.',
     'Skontroluj, či komentár vysvetľuje dôvod, nie iba opakuje kód.',
     'Urob malú zmenu, spusti testy a stručne zapíš, čo si sa naučil.',
+  ],
+  'lesson-python-basics': [
+    'Oprav prístup k poslednému prvku zoznamu; vypíš číslo 30.',
+    'Použi f-string, aby sa vypísalo „Ahoj, Eva!“.',
+    'Oprav podmienku tak, aby 0 vypísala „nula“ a 2 „kladné“.',
+    'Spočítaj všetky čísla v zozname; výsledok má byť 9.',
+    'Oprav rozsah cyklu, aby vypísal 1, 2, 3, 4 a 5.',
+    'Doplň return; funkcia double(4) má vrátiť 8.',
+    'Oprav volanie funkcie, aby sa vypísal pozdrav „Ahoj, Mia!“.',
+    'Premeň text „16“ na celé číslo a vypíš jeho dvojnásobok 32.',
+    'Oprav kľúč v slovníku, aby sa vypísalo hlavné mesto „Bratislava“.',
+    'Pri prázdnom zozname vypíš 0 namiesto chyby.',
+    'Zmeň hodnotu is_ready na skutočné True, aby sa vykonala vetva if.',
+    'Oprav funkciu average; pre [2, 4, 6] má vrátiť 4.',
+  ],
+  'lesson-java-basics': [
+    'Oprav chybu v zápise main tak, aby sa program dal spustiť.',
+    'Použi .equals() na porovnanie textu; pre „Eva“ vypíš „Vitaj!“.',
+    'Oprav cyklus, aby vypísal čísla od 1 po 5 vrátane.',
+    'Oprav súčet dvoch celých čísel; 4 + 6 má byť 10.',
+    'Oprav návratový typ a return metódy square; square(3) má byť 9.',
+    'Vytvor objekt Student a nastav jeho meno na Eva.',
+    'Oprav index poľa, aby sa vypísala posledná známka 10.',
+    'Skontroluj null pred použitím name.length(), aby sa program nezrútil.',
+    'Označ main ako static, aby JVM mohla zavolať metódu bez objektu.',
+    'Oprav typ zoznamu a pridaj číslo 5 do ArrayList<Integer>.',
+    'Oprav konštruktor Student, aby uložil meno do poľa name.',
+    'Oprav podmienku, aby sa text „Java“ porovnával pomocou equals.',
+  ],
+  'lesson-csharp-basics': [
+    'Oprav Main na platný vstupný bod a vypíš pozdrav.',
+    'Použi správne typy string a int; vypíš meno Eva a vek 16.',
+    'Oprav metódu Add; pre 4 a 6 má vrátiť 10.',
+    'Oprav cyklus, aby vypísal čísla od 1 do 5 vrátane.',
+    'Použi == na porovnanie čísla score s hodnotou 10.',
+    'Oprav index poľa, aby sa vypísala posledná položka 30.',
+    'Doplň return; metóda Double(4) má vrátiť 8.',
+    'Použi interpoláciu reťazca, aby výsledok bol „Ahoj, Eva!“.',
+    'Oprav List<int> a pridaj doň celé číslo 5.',
+    'Skontroluj, či je name null, skôr než použiješ Length.',
+    'Vytvor objekt Student a nastav jeho vlastnosť Name na Eva.',
+    'Oprav výpočet priemeru zo známok 2, 4 a 6; výsledok má byť 4.',
   ],
 };
 
@@ -437,6 +497,57 @@ const lessonTaskExamples = {
     'const items = [];\nif (items.length === 0) {\n  console.log("Empty");\n}\nconsole.log(items[0]);',
     'function showScore(score) {\n  return "Score: " + score;\n  console.log("Done");\n}',
   ],
+  'lesson-python-basics': [
+    'def greet(name):\nprint(f"Ahoj, {name}!")\ngreet("Eva")',
+    'first = input("Prvé číslo: ")\nsecond = input("Druhé číslo: ")\nprint(first + second)',
+    'count = 1\nwhile count <= 3:\n    print(count)\n    count -= 1',
+    'scores = [10, 20, 30]\nprint(scores[3])',
+    'name = "Eva"\nmessage = "Ahoj, {name}!"\nprint(message)',
+    'number = 0\nif number > 0:\n    print("kladné")\nelse:\n    print("záporné")',
+    'values = [2, 3, 4]\ntotal = 0\nfor value in values:\n    total = value\nprint(total)',
+    'for number in range(1, 5):\n    print(number)',
+    'def double(number):\n    return number\n\nprint(double(4))',
+    'def greet(name):\n    print(f"Ahoj, {name}!")\n\ngreet()',
+    'age = "16"\nprint(age * 2)',
+    'cities = {"Slovensko": "Bratislava"}\nprint(cities["Slovak"])',
+    'values = []\naverage = sum(values) / len(values)\nprint(average)',
+    'is_ready = "False"\nif is_ready:\n    print("Pripravené")',
+    'def average(values):\n    return sum(values) + len(values)\n\nprint(average([2, 4, 6]))',
+  ],
+  'lesson-java-basics': [
+    'public class Main {\n    public static void Main(String[] args) {\n        System.out.println("Ahoj, svet!");\n    }\n}',
+    'public class Main {\n    public static void main(String[] args) {\n        String name = "Eva";\n        int age = "16";\n        System.out.println(name + age);\n    }\n}',
+    'public class Main {\n    static int multiply(int first, int second) {\n        return first + second;\n    }\n    public static void main(String[] args) {\n        System.out.println(multiply(3, 4));\n    }\n}',
+    'String language = "Java";\nif (language == "Python") {\n    System.out.println("Vitaj!");\n}',
+    'for (int number = 1; number < 5; number++) {\n    System.out.println(number);\n}',
+    'int total = 4 - 6;\nSystem.out.println(total);',
+    'public class Main {\n    static int square(int number) {\n        return "number * number";\n    }\n}',
+    'class Student {\n    String name;\n}\nStudent student = null;\nstudent.name = "Eva";',
+    'int[] grades = {8, 9, 10};\nSystem.out.println(grades[3]);',
+    'String name = null;\nSystem.out.println(name.length());',
+    'public class Main {\n    public void main(String[] args) {\n        System.out.println("Ahoj");\n    }\n}',
+    'import java.util.ArrayList;\nArrayList<int> scores = new ArrayList<>();\nscores.add(5);',
+    'class Student {\n    String name;\n    Student(String studentName) {\n        this.name = name;\n    }\n}',
+    'static int max(int first, int second) {\n    return first + second;\n}\nSystem.out.println(max(3, 7));',
+    'String language = "Java";\nif (language == "Java") {\n    System.out.println("Správny jazyk");\n}',
+  ],
+  'lesson-csharp-basics': [
+    'class Program {\n    static void main(string[] args) {\n        Console.WriteLine("Ahoj, svet!");\n    }\n}',
+    'string name = "Eva";\nint age = "16";\nConsole.WriteLine(name + age);',
+    'static int Add(int first, int second) {\n    return first - second;\n}\nConsole.WriteLine(Add(4, 6));',
+    'for (int number = 1; number < 5; number++) {\n    Console.WriteLine(number);\n}',
+    'int score = 10;\nif (score = 10) {\n    Console.WriteLine("Hotovo");\n}',
+    'int[] values = { 10, 20, 30 };\nConsole.WriteLine(values[3]);',
+    'static int Double(int number) {\n    Console.WriteLine(number * 2);\n}\nint result = Double(4);',
+    'string name = "Eva";\nConsole.WriteLine("Ahoj, {name}!");',
+    'List<int> values = new List<string>();\nvalues.Add("5");',
+    'string name = null;\nConsole.WriteLine(name.Length);',
+    'class Student {\n    public string Name { get; set; }\n}\nStudent student = null;\nstudent.Name = "Eva";',
+    'int[] grades = { 2, 4, 6 };\nint average = grades.Sum() + grades.Length;\nConsole.WriteLine(average);',
+    'int count = 0;\nwhile (count < 3) {\n    Console.WriteLine(count);\n}',
+    'string[] names = { "Eva", "Mia" };\nConsole.WriteLine(names[2]);',
+    'bool isReady = "true";\nif (isReady) Console.WriteLine("Pripravené");',
+  ],
 };
 
 const lessonTaskPrompts = {
@@ -627,6 +738,57 @@ const lessonTaskPrompts = {
     'Ak je items prázdne, vypíš Empty; inak bezpečne vypíš prvú položku.',
     'Presuň výpis Done pred return, aby sa vykonali oba kroky.',
   ],
+  'lesson-python-basics': [
+    'Odsuň print o štyri medzery, aby patril do funkcie greet.',
+    'Premeň oba vstupy na int pred sčítaním; výsledok pre 2 a 3 má byť 5.',
+    'Zmeň odčítanie na pripočítanie, aby sa vypísali 1, 2, 3.',
+    'Vypíš posledný prvok zoznamu scores; jeho hodnota má byť 30.',
+    'Použi f-string, aby sa do správy dosadilo meno Eva.',
+    'Doplň samostatnú vetvu pre nulu; pre number = 0 vypíš „nula“.',
+    'Pripočítaj každú hodnotu do total; výsledný súčet má byť 9.',
+    'Uprav range tak, aby cyklus vypísal aj číslo 5.',
+    'Vráť dvojnásobok number; double(4) má vrátiť 8.',
+    'Zavolaj greet s menom „Mia“, aby sa vypísalo „Ahoj, Mia!“.',
+    'Premeň age na int pred násobením; výsledok má byť 32.',
+    'Oprav názov kľúča v slovníku; hlavné mesto Slovenska je Bratislava.',
+    'Ak je zoznam prázdny, nastav priemer na 0 namiesto delenia nulou.',
+    'Ulož is_ready ako boolean True, nie ako text „False“.',
+    'Oprav výpočet average; pri [2, 4, 6] má vrátiť 4.',
+  ],
+  'lesson-java-basics': [
+    'Premenuj metódu Main na main malými písmenami, aby ju Java spustila.',
+    'Zmeň vek na int 16 a vypíš meno aj vek.',
+    'Zmeň sčítanie na násobenie; multiply(3, 4) má vypísať 12.',
+    'Porovnaj language s „Java“ a vypíš „Vitaj!“ pre tento text.',
+    'Uprav hranicu cyklu, aby vypísal 1, 2, 3, 4 a 5.',
+    'Zmeň odčítanie na sčítanie; výsledok 4 + 6 má byť 10.',
+    'Zmeň návratový typ na int a vráť druhú mocninu čísla.',
+    'Vytvor objekt Student pomocou new a nastav meno na Eva.',
+    'Vypíš poslednú známku z poľa; správna hodnota je 10.',
+    'Skontroluj name na null pred volaním length().',
+    'Pridaj static k main, aby ho Java mohla spustiť bez objektu.',
+    'Použi ArrayList<Integer> namiesto ArrayList<int>.',
+    'Ulož parameter studentName do poľa this.name.',
+    'Oprav max; pre hodnoty 3 a 7 má vrátiť 7.',
+    'Porovnaj language pomocou equals(), nie operátorom ==.',
+  ],
+  'lesson-csharp-basics': [
+    'Oprav názov Main a pridaj static, aby .NET našiel vstupný bod.',
+    'Zmeň vek na int 16 a vypíš meno aj vek.',
+    'Zmeň odčítanie na sčítanie; Add(4, 6) má vrátiť 10.',
+    'Uprav hranicu cyklu, aby vypísal čísla 1, 2, 3, 4 a 5.',
+    'Použi == namiesto priradenia = pri kontrole score.',
+    'Vypíš posledný prvok poľa values; jeho hodnota má byť 30.',
+    'Vráť číslo z metódy; Double(4) má vrátiť 8.',
+    'Použi interpolovaný reťazec, aby sa vypísalo „Ahoj, Eva!“.',
+    'Oprav typy na List<int> a pridaj celé číslo 5.',
+    'Skontroluj name na null pred čítaním vlastnosti Length.',
+    'Vytvor Student pomocou new a nastav jeho Name na Eva.',
+    'Vypočítaj priemer [2, 4, 6] delením; správny výsledok je 4.',
+    'Zvýš count v cykle, aby sa zastavil po troch opakovaniach.',
+    'Vypíš druhé meno z poľa names pomocou platného indexu 1.',
+    'Ulož isReady ako boolean true bez úvodzoviek.',
+  ],
 };
 
 for (const [lessonId, tasks] of Object.entries(lessonTasks)) {
@@ -761,6 +923,39 @@ const lessonContent = {
     examples: [{ label: 'Pseudokód: bezpečný priemer známok', code: 'NAČÍTAJ zoznam známok\nAK je zoznam prázdny:\n  VYPÍŠ "Nie sú zadané žiadne známky"\nINAK:\n  nastav súčet na 0\n  PRE KAŽDÚ známku v zozname:\n    pripočítaj známku k súčtu\n  vypočítaj priemer = súčet / počet známok\n  VYPÍŠ priemer' }],
     takeaway: 'Najprv si naplánuj riešenie, píš zrozumiteľný kód a overuj aj prípady, ktoré nie sú úplne bežné.',
   },
+  'lesson-python-basics': {
+    intro: 'Python je programovací jazyk, ktorého čitateľný zápis a stručná syntax pomáhajú sústrediť sa na logiku programu.',
+    explanation: 'Python používa odsadenie na označenie blokov kódu, napríklad tela funkcie alebo podmienky. Premennú vytvoríš priradením hodnoty bez uvedenia typu. Funkcia sa začína slovom def a výsledok môže vrátiť cez return. input() vracia text, preto ho pred číselným výpočtom často treba previesť na int alebo float. Zoznamy sú zoradené a ich indexy začínajú od nuly; range() má hornú hranicu, ktorú nezahrnie.',
+    points: [
+      'V jednom bloku používaj rovnaké odsadenie, zvyčajne štyri medzery.',
+      'Nezamieňaj textové číslo, napríklad "5", so skutočným číslom 5.',
+      'Prázdny zoznam ošetri pred delením jeho dĺžkou alebo čítaním prvku.',
+    ],
+    examples: [{ label: 'Súčet čísel v Pythone', code: 'numbers = [2, 3, 4]\ntotal = 0\nfor number in numbers:\n    total += number\nprint(total)  # 9' }],
+    takeaway: 'Odsadzuj bloky konzistentne, kontroluj typ vstupov a pamätaj, že range() svoju koncovú hodnotu nezahrnie.',
+  },
+  'lesson-java-basics': {
+    intro: 'Java je typovaný programovací jazyk, v ktorom sa program organizuje do tried a spúšťa cez metódu main.',
+    explanation: 'V Jave pri premennej určíš typ, napríklad int pre celé číslo alebo String pre text. Príkazy sa zvyčajne končia bodkočiarkou a bloky sú medzi zloženými zátvorkami. Program má triedu a spustenie sa začína v public static void main(String[] args). Metóda môže prijať parametre a vrátiť hodnotu deklarovaného typu. Reťazce porovnávaj pomocou equals(), pretože == pri objektoch porovnáva, či ide o tú istú referenciu.',
+    points: [
+      'Typ pri deklarácii určuje, akú hodnotu môže premenná obsahovať.',
+      'Index prvého prvku poľa je 0 a posledný index je dĺžka poľa mínus jeden.',
+      'Pri práci s objektom skontroluj, či nie je null, skôr než zavoláš jeho metódu.',
+    ],
+    examples: [{ label: 'Jednoduchý program v Jave', code: 'public class Main {\n    public static void main(String[] args) {\n        String name = "Eva";\n        System.out.println("Ahoj, " + name);\n    }\n}' }],
+    takeaway: 'Deklaruj správne typy, používaj vyvážené zátvorky a na porovnanie obsahu String použi equals().',
+  },
+  'lesson-csharp-basics': {
+    intro: 'C# je typovaný jazyk platformy .NET, ktorý sa používa na desktopové, webové aj herné aplikácie.',
+    explanation: 'V C# zapisuješ typ premennej, napríklad int alebo string. Bloky kódu uzatvárajú zložené zátvorky a príkazy sa končia bodkočiarkou. Metóda pomenúva opakovateľný postup; jej návratový typ musí zodpovedať hodnote po return. Trieda môže mať vlastnosti a metódy a z triedy vytvoríš objekt pomocou new. Pole má pevnú dĺžku, zatiaľ čo List<T> je kolekcia s meniteľným počtom prvkov. Pred použitím textovej hodnoty skontroluj null.',
+    points: [
+      'Rozlišuj int, string a bool; text "10" nie je automaticky celé číslo 10.',
+      'Pri List<int> je int typ položiek a indexovanie sa začína nulou.',
+      'Metóda, ktorá vracia int, musí v každej platnej ceste vrátiť celé číslo.',
+    ],
+    examples: [{ label: 'Metóda v C#', code: 'static int Add(int first, int second) {\n    return first + second;\n}\n\nConsole.WriteLine(Add(4, 6));  // 10' }],
+    takeaway: 'Sleduj typy vstupov a výsledkov, kontroluj hranice kolekcií a over null pred použitím hodnoty.',
+  },
 };
 
 const lessonReading = {
@@ -841,6 +1036,27 @@ const lessonReading = {
     { title: 'Over vstupy a vyhni sa hádam', text: 'Nevychádzaj z toho, že používateľ vždy zadá správnu hodnotu. Prázdny text, nula, záporné číslo alebo veľmi dlhý zoznam môžu zmeniť výsledok. Over podmienky, ktoré program potrebuje, a pri chybe ukáž zrozumiteľnú správu. Vyhni sa nevysvetleným číslam v kóde; pomenovaná konštanta objasní ich význam. Nepíš zbytočne zložitú optimalizáciu skôr, než máš funkčné a otestované jednoduché riešenie.' },
     { title: 'Komentáre, testy a učenie', text: 'Komentár má vysvetliť dôvod alebo dôležitý predpoklad, nie iba preložiť riadok kódu do slov. Kód udržuj v malých zmenách: uprav, spusti, otestuj a až potom pokračuj. Porovnaj skutočný výsledok s príkladom, ktorý si si pripravil vopred. Keď niečo nefunguje, prečítaj správu a vytvor najmenší opakovateľný prípad. Nepreberaj cudzí kód bez pochopenia; uprav ho po malých častiach a vedz, čo každá časť robí.' },
   ],
+  'lesson-python-basics': [
+    { title: 'Odsadenie tvorí bloky', text: 'V Pythone odsadenie nie je iba vzhľad. Riadky s rovnakým odsadením patria do jedného bloku, napríklad podmienky alebo funkcie. Po riadku končiacom dvojbodkou odsadenie zvýš. Ak sa vrátiš na predchádzajúcu úroveň, blok sa končí. Používaj v celom projekte rovnaký počet medzier; editor vie odsadenie vložiť automaticky. Chybná úroveň môže spôsobiť IndentationError alebo zmeniť to, ktoré riadky sa vykonajú spolu.' },
+    { title: 'Premenné a typy', text: 'Premenná vznikne, keď jej priradíš hodnotu, napríklad score = 0. Python určí typ podľa hodnoty a ten sa môže pri ďalšom priradení zmeniť. Text je string, celé číslo int, desatinné číslo float a pravdivostná hodnota bool. Pri sčítaní textu a čísla musíš vedieť, či chceš počítať alebo vytvárať text. Názvy ako student_name alebo total_score vysvetľujú obsah lepšie než krátke písmená. Na zistenie typu môžeš použiť type() a na kontrolu hodnoty print().' },
+    { title: 'Vstup, prevod a výstup', text: 'Funkcia input() zobrazí výzvu a vráti text, aj keď používateľ zadá číslice. Ak chceš počítať, preveď výsledok cez int() alebo float(). Prevod neplatného textu môže vyvolať ValueError, preto neskôr pridaj kontrolu alebo ošetrenie výnimky. print() vypisuje hodnoty a môže prijať viac argumentov. F-string začína písmenom f a umožňuje vložiť hodnotu do zložených zátvoriek, napríklad f"Ahoj, {name}!". Takto sa dajú tvoriť čitateľné správy bez ručného spájania textu.' },
+    { title: 'Zoznamy a slovníky', text: 'Zoznam list uchováva hodnoty v poradí a môže sa meniť. Prvý index je 0, takže zoznam s tromi prvkami má indexy 0, 1 a 2. Záporný index -1 označuje posledný prvok. Prístup mimo rozsahu vyvolá IndexError. Slovník dict priraďuje hodnoty ku kľúčom, napríklad názov krajiny k hlavnému mestu. Kľúč musí zodpovedať tomu, čo je v slovníku uložené. Pred prístupom k neznámemu kľúču zváž get() alebo kontrolu, či sa kľúč nachádza v slovníku.' },
+    { title: 'Podmienky, cykly a funkcie', text: 'if a elif vyberajú vetvu podľa podmienky; else pokryje ostatné prípady. for prechádza položky zoznamu alebo hodnoty z range(). Koncová hranica range() sa nezahrnie, preto range(1, 6) vytvorí čísla 1 až 5. while pokračuje, kým je podmienka pravdivá, a v tele musí existovať cesta k ukončeniu. Funkciu vytvoríš pomocou def. return odovzdá výsledok volajúcemu kódu, zatiaľ čo print iba zobrazí text.' },
+  ],
+  'lesson-java-basics': [
+    { title: 'Trieda a vstupný bod', text: 'Java program sa zapisuje do triedy. Pri jednoduchom programe s názvom Main býva súbor Main.java a spustenie sa začína v public static void main(String[] args). Názov triedy a súboru sa pri verejnej triede zhodujú vrátane veľkých a malých písmen. Kľúčové slová public, static a void majú presný význam: metóda je dostupná, dá sa zavolať bez vytvorenia objektu a sama nevracia hodnotu. Zátvorky a bodkočiarky sú súčasťou syntaxe, ktorú compiler kontroluje.' },
+    { title: 'Typy a premenné', text: 'Java je staticky typovaná: pri deklarácii uvedieš typ a compiler kontroluje jeho použitie. int je celé číslo, double desatinné číslo, boolean true alebo false a String text. String je objektový typ, kým int a boolean sú primitívne typy. Premennú inicializuj pred čítaním a nedávaj číslo do textovej premennej, ak s ním chceš počítať. Konštantu označíš final. Typy uľahčujú odhalenie mnohých chýb skôr, než program spustíš.' },
+    { title: 'Reťazce a porovnávanie', text: 'String môžeš spojiť s iným textom pomocou operátora +. Na kontrolu obsahu použi equals(), napríklad name.equals("Eva"). Operátor == pri objektoch zisťuje, či obe premenné odkazujú na ten istý objekt, nie či obsahujú rovnaké znaky. Ak môže byť hodnota null, najprv ju skontroluj alebo porovnávaj bezpečne z konštantného textu, napríklad "Eva". Tak predídeš NullPointerException a porovnanie bude vyjadrovať zámer.' },
+    { title: 'Podmienky, polia a cykly', text: 'Podmienky if a else vyžadujú výraz typu boolean. for cyklus má inicializáciu, podmienku a krok; kontroluj, že sa počítadlo mení smerom k ukončeniu. Pole int[] má pevnú dĺžku a indexy začínajú nulou. Ak má dĺžku päť, posledný platný index je 4. Použi array.length na zistenie počtu prvkov a cykluj, kým index < array.length. Prístup na index mimo rozsahu spôsobí chybu počas behu.' },
+    { title: 'Metódy a návratové hodnoty', text: 'Metóda je pomenovaný blok, ktorý môže prijať parametre. Jej návratový typ uvádza, čo vráti: int metóda musí vrátiť celé číslo a void metóda hodnotu nevracia. Volanie metódy odovzdá argumenty v rovnakom poradí ako parametre. Metódy static možno volať z main bez objektu; iné metódy patria konkrétnemu objektu. Rozdeľ program na malé metódy s jasným účelom a testuj ich aspoň s bežným a hraničným vstupom.' },
+  ],
+  'lesson-csharp-basics': [
+    { title: 'Program a vstupný bod', text: 'C# sa zvyčajne kompiluje pomocou nástrojov .NET. Konzolová aplikácia môže mať triedu Program a metódu static void Main(string[] args); novšie šablóny podporujú aj top-level statements. V klasickom príklade záleží na názve Main, veľkosti písmen, zložených zátvorkách a bodkočiarkach. Console.WriteLine vypíše text a ukončí riadok. Pri chybe compiler často označí súbor a riadok; oprav prvé relevantné hlásenie a skús program skompilovať znova.' },
+    { title: 'Typy a premenné', text: 'C# je staticky typovaný jazyk. int uchováva celé čísla, double desatinné čísla, bool hodnotu true alebo false a string text. Hodnotu môžeš uložiť do premennej a neskôr použiť vo výpočte. Premennú označenú readonly alebo konštantu const nemožno bežne prepísať. Textové číslo "16" treba previesť napríklad cez int.Parse alebo bezpečnejší int.TryParse. Kompilátor kontroluje veľa nesúladov typov, no stále musíš rozhodnúť, či vstup dáva zmysel.' },
+    { title: 'Metódy a triedy', text: 'Metóda má návratový typ, názov, prípadné parametre a telo v zložených zátvorkách. Ak vracia int, všetky bežné cesty musia vrátiť celé číslo cez return. Trieda môže uchovávať vlastnosti, napríklad Student.Name, a metódy, ktoré s nimi pracujú. Objekt vytvoríš pomocou new. Dobrý návrh oddeľuje výpočet od výpisu: metóda Add môže vrátiť súčet a Console.WriteLine ho zobrazí. Tak sa výsledok dá ľahšie opakovane použiť aj otestovať.' },
+    { title: 'Polia a zoznamy', text: 'Pole má pevnú dĺžku a jeho prvý index je 0. Pri troch položkách sú platné indexy 0, 1 a 2. List<T> v meniacom sa zozname umožňuje pridávať položky pomocou Add; typ v uhlových zátvorkách určuje, čo zoznam obsahuje, napríklad List<int>. Pred čítaním položky skontroluj, či index existuje alebo či kolekcia obsahuje aspoň jeden prvok. Priemer počítaj zo súčtu deleného počtom položiek, ale prázdny zoznam ošetri pred delením.' },
+    { title: 'Podmienky, cykly a null', text: 'Operátor == porovnáva hodnoty základných typov; pri string porovnáva obsah podľa pravidiel jazyka. Cyklus for sa hodí pri známom počte opakovaní a while pri opakovaní podľa podmienky. V každom cykle musí byť zmena, ktorá ho môže ukončiť. Referenčný typ, napríklad string alebo objekt, môže mať hodnotu null. Skontroluj ju pred prístupom k vlastnosti, napríklad Length. Tak predídeš NullReferenceException a môžeš používateľovi vrátiť zrozumiteľnú správu.' },
+  ],
 };
 
 const lessonReadingContinuation = {
@@ -876,6 +1092,15 @@ const lessonReadingContinuation = {
   ],
   'lesson-write-code-thoughtfully': [
     { title: 'Jednoduché riešenie, ktoré vieš obhájiť', text: 'Dobré riešenie nemusí mať najmenej riadkov; má byť správne, zrozumiteľné a primerané úlohe. Krátke, ale nejasné skratky často sťažujú opravu. Po napísaní kódu si prejdi každý názov, podmienku a opakovaný krok: vie spolužiak pochopiť zámer bez hádania? Potom spusti príklady, ktoré si pripravil, a pridaj aspoň jeden okrajový vstup. Ak sa správanie líši od plánu, uprav pseudokód alebo implementáciu a skús to znova. Schopnosť vysvetliť, prečo riešenie funguje, je dôležitejšia než rýchle skopírovanie cudzieho výsledku.' },
+  ],
+  'lesson-python-basics': [
+    { title: 'Ako postupovať pri vlastnom programe', text: 'Pri novej úlohe najprv napíš, aké hodnoty program dostane a čo má vypísať. Potom rozdeľ postup na malé kroky a skontroluj ich na ručnom príklade. V Pythone si výsledok môžeš overiť v interaktívnom interpreteri alebo v súbore .py. Spusti program po každej malej zmene a čítaj celé chybové hlásenie; často ukáže názov výnimky aj riadok, kde sa problém prejavil. Otestuj bežný vstup, nulu a prázdny zoznam. Keď niečo nefunguje, zmeň jednu vec naraz. Tak zistíš, ktorá úprava pomohla, a zároveň sa naučíš vysvetliť, prečo riešenie funguje.' },
+  ],
+  'lesson-java-basics': [
+    { title: 'Kompilácia a samostatné testy', text: 'Typický cyklus práce s Javou je upraviť .java súbor, skompilovať ho a následne spustiť triedu. Compiler môže odhaliť chýbajúci bodkočiarku, nesprávny typ alebo neuzavretú zátvorku. Ak sa program spustí, stále môže mať logickú chybu; porovnaj výstup s výsledkom vypočítaným ručne. Skús metódu zavolať s bežnou hodnotou aj s nulou alebo prázdnym textom. Pri práci s poľom otestuj jeho prvý a posledný prvok. Názov triedy a súboru udržuj v zhode. Postupné kompilovanie a malé testy zmenšujú počet miest, kde treba chybu hľadať.' },
+  ],
+  'lesson-csharp-basics': [
+    { title: 'Od nápadu k overenému výsledku', text: 'Pred písaním metódy si urč jej vstupy, návratovú hodnotu a prípady, ktoré musí zvládnuť. Pri výpočte priemeru napríklad potrebuješ zoznam čísel a pravidlo pre prázdny zoznam. Implementuj najprv jednoduchú verziu, spusti ju s malým príkladom a porovnaj výsledok s ručným výpočtom. Potom pridaj hraničné prípady. Ak compiler hlási chybu, prečítaj prvé hlásenie a skontroluj typ, bodkočiarku a zátvorky. Pri chybe počas behu sleduj konkrétnu hodnotu, ktorá bola null alebo mala nesprávny index. Po oprave zopakuj pôvodné testy, aby si overil, že sa správanie nezhoršilo.' },
   ],
 };
 
@@ -931,21 +1156,21 @@ function localizeStaticCopy() {
   setTexts('.path-card h3', ['Tvor pre browser', 'Mysli ako programátor', 'Uč sa tvorbou']);
   setTexts('.path-card > p', [
     'Vytváraj štruktúru stránky, uprav jej vzhľad a pridaj interakcie.',
-    'Osvoj si premenné, logiku, funkcie a základy pamäte v C a C++.',
+    'Osvoj si premenné, logiku a funkcie v C, C++, Pythone, Jave a C#.',
     'Premieňaj nové vedomosti na malé projekty a skúšaj vlastné nápady.',
   ]);
   document.querySelectorAll('.path-card .text-link').forEach((element, index) => {
     element.firstChild.textContent = ['Otvoriť webové lekcie ', 'Otvoriť lekcie C a C++ ', 'Pozrieť nápady na projekty '][index];
   });
   setTexts('.path-card:first-child .path-tags span', ['HTML', 'CSS', 'JavaScript']);
-  setTexts('.path-card:nth-child(2) .path-tags span', ['C', 'C++', 'Logické myslenie']);
+  setTexts('.path-card:nth-child(2) .path-tags span', ['C a C++', 'Python a Java', 'C#']);
   setTexts('.path-card:nth-child(3) .path-tags span', ['Precvičovanie', 'Projekty', 'Zvedavosť']);
 
   setText('.curriculum-heading .eyebrow', 'UČEBNÝ PLÁN');
   document.querySelector('.curriculum-heading h2').innerHTML = 'Osvoj si <span class="serif-italic">základy.</span>';
   setText('.curriculum-heading > p', 'Postupuj vlastným tempom. V každej lekcii si prečítaj vysvetlenie, splň všetkých 15 praktických úloh a potom označ lekciu ako dokončenú. Tvoj postup sa ukladá automaticky.');
   document.querySelectorAll('.filter-button').forEach((button, index) => {
-    button.firstChild.textContent = ['Všetko ', 'Web ', 'C a C++ '][index];
+    button.firstChild.textContent = ['Všetko ', 'Web ', 'C a C++ ', 'Ďalšie jazyky '][index];
     button.querySelector('span').textContent = lessonCards.filter((card) => button.dataset.filter === 'all' || card.dataset.category === button.dataset.filter).length;
   });
   document.querySelector('.search-box input').placeholder = 'Hľadať lekciu...';
@@ -963,6 +1188,9 @@ function localizeStaticCopy() {
     'Zoznamy: array a vector',
     'Debugging a testovanie',
     'Programuj premyslene',
+    'Python: prvé čitateľné programy',
+    'Java: typy, triedy a metódy',
+    'C#: typy a objekty',
   ]);
   setTexts('.lesson-short', [
     'Spoznaj browser, server a cestu, ktorou sa stránka dostane na obrazovku.',
@@ -976,15 +1204,18 @@ function localizeStaticCopy() {
     'Ukladaj viac hodnôt do array alebo vector a prejdi ich pomocou loop.',
     'Hľadaj chyby systematicky a over program na rôznych vstupoch.',
     'Vyhni sa zlým návykom, vyber si lepší postup a naplánuj riešenie pseudokódom.',
+    'Nauč sa odsadenie, premenné, zoznamy, cykly a funkcie v Pythone.',
+    'Spoznaj typy, triedy, vstupnú metódu main a objekty v Jave.',
+    'Preskúmaj typované premenné, metódy, triedy a kolekcie v C#.',
   ]);
-  setTexts('.lesson-tag', ['ZÁKLADY WEBU', 'HTML', 'CSS', 'JAVASCRIPT', 'JAVASCRIPT', 'JAVASCRIPT', 'C A C++', 'C A C++', 'C A C++', 'C A C++', 'PROGRAMÁTORSKÉ NÁVYKY']);
+  setTexts('.lesson-tag', ['ZÁKLADY WEBU', 'HTML', 'CSS', 'JAVASCRIPT', 'JAVASCRIPT', 'JAVASCRIPT', 'C A C++', 'C A C++', 'C A C++', 'C A C++', 'PROGRAMÁTORSKÉ NÁVYKY', 'PYTHON', 'JAVA', 'C#']);
   document.querySelectorAll('.lesson-meta span:last-child').forEach((element) => {
     element.textContent = element.textContent.replace('MIN', 'min');
   });
 
   setText('.concept-copy .eyebrow', 'JEDNA MYŠLIENKA, VIAC JAZYKOV');
   document.querySelector('.concept-copy h2').innerHTML = 'Najprv pochop <span>myšlienku.</span><br>Potom syntax.';
-  setText('.concept-copy > p', 'Keď pochopíš programátorský princíp v jednom jazyku, ľahšie ho spoznáš aj v inom. Pozri sa na rovnaký pozdrav v JavaScripte a C++.');
+  setText('.concept-copy > p', 'Keď pochopíš programátorský princíp v jednom jazyku, ľahšie ho spoznáš aj v inom. Pozri sa na rovnaký pozdrav v JavaScripte a C++, potom si vyskúšaj Python, Javu a C#.');
   setText('.concept-note strong', 'Nemusíš si všetko zapamätať.');
   document.querySelector('.concept-note p').lastChild.textContent = 'Precvičuj čítanie kódu, kladenie otázok a malé úpravy. Takto sa učia aj skúsení programátori.';
   setText('.compare-title', 'Jednoduchý pozdrav');
